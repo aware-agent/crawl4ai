@@ -54,7 +54,7 @@ class TopicSegmentationChunking(ChunkingStrategy):
     
     def __init__(self, num_keywords=3, **kwargs):
         import nltk as nl
-        self.tokenizer = nl.toknize.TextTilingTokenizer()
+        self.tokenizer = nl.tokenize.TextTilingTokenizer()
         self.num_keywords = num_keywords
 
     def chunk(self, text: str) -> list:
@@ -65,7 +65,7 @@ class TopicSegmentationChunking(ChunkingStrategy):
     def extract_keywords(self, text: str) -> list:
         # Tokenize and remove stopwords and punctuation
         import nltk as nl
-        tokens = nl.toknize.word_tokenize(text)
+        tokens = nl.tokenize.word_tokenize(text)
         tokens = [token.lower() for token in tokens if token not in nl.corpus.stopwords.words('english') and token not in string.punctuation]
 
         # Calculate frequency distribution
