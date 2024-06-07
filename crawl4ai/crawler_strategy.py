@@ -48,7 +48,7 @@ class CloudCrawlerStrategy(CrawlerStrategy):
             "extract_blocks": False,
         }
 
-        response = requests.post("http://crawl4ai.uccode.io/crawl", json=data)
+        response = requests.post("http://aware-agent.github.io/crawl", json=data)
         response = response.json()
         html = response["results"][0]["html"]
         return html
