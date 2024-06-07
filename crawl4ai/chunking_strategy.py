@@ -54,6 +54,11 @@ class TopicSegmentationChunking(ChunkingStrategy):
     
     def __init__(self, num_keywords=3, **kwargs):
         import nltk as nl
+        # Ensure the 'stopwords' resource is downloaded
+        try:
+            nl.data.find('corpora/stopwords')
+        except LookupError:
+            nl.download('stopwords')
         self.tokenizer = nl.tokenize.TextTilingTokenizer()
         self.num_keywords = num_keywords
 
